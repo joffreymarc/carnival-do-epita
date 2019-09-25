@@ -17,14 +17,14 @@ class JoffreymarcPlayer extends Player
 
     public function getChoice()
     {
-      if ($this->result->getLastScoreFor($this->mySide) != 3)
+      if ($this->result->getLastScoreFor($this->mySide) == 3)
       {
         if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
-          return parent::paperChoice();
-        elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
           return parent::scissorsChoice();
-        elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
+        elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
           return parent::rockChoice();
+        elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
+          return parent::paperChoice();
         else
           return parent::rockChoice();
       }
