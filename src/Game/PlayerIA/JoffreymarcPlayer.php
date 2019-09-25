@@ -17,59 +17,29 @@ class JoffreymarcPlayer extends Player
 
     public function getChoice()
     {
-      //dissimulation de stratégie en alternant un tour sur deux
-      if ($this->result->getNbRound() % 2 != 0)
+      //rotation de 1 en cas de défaites
+      if ($this->result->getLastScoreFor($this->mySide) != 3)
       {
-        //rotation de 1 en cas de défaites
-        if ($this->result->getLastScoreFor($this->mySide) != 3)
-        {
-          if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
-            return parent::paperChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
-            return parent::scissorsChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
-            return parent::rockChoice();
-          else
-            return parent::rockChoice();
-        }
+        if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
+          return parent::paperChoice();
+        elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
+          return parent::scissorsChoice();
+        elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
+          return parent::rockChoice();
         else
-        {
-          if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
-            return parent::rockChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
-            return parent::paperChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
-            return parent::scissorsChoice();
-          else
-            return parent::rockChoice();
-        }
+          return parent::rockChoice();
       }
       else
       {
-        //rotation de 2 en cas de défaites et de 1 en cas de victoire
-        if ($this->result->getLastScoreFor($this->mySide) != 3)
-        {
-          if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
-            return parent::scissorsChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
-            return parent::rockChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
-            return parent::paperChoice();
-          else
-            return parent::rockChoice();
-        }
+        if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
+          return parent::rockChoice();
+        elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
+          return parent::paperChoice();
+        elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
+          return parent::scissorsChoice();
         else
-        {
-          if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
-            return parent::paperChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
-            return parent::scissorsChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
-            return parent::rockChoice();
-          else
-            return parent::rockChoice();
+          return parent::rockChoice();
         }
-      }
     }
       // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
