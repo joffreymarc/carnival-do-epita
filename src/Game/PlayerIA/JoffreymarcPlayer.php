@@ -45,6 +45,7 @@ class JoffreymarcPlayer extends Player
       }
       else
       {
+        //rotation de 2 en cas de défaites et de 1 en cas de victoire
         if ($this->result->getLastScoreFor($this->mySide) != 3)
         {
           if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
@@ -59,11 +60,11 @@ class JoffreymarcPlayer extends Player
         else
         {
           if ($this->result->getLastChoiceFor($this->mySide) == 'rock')
-            return parent::rockChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
             return parent::paperChoice();
-          elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
+          elseif ($this->result->getLastChoiceFor($this->mySide) == 'paper')
             return parent::scissorsChoice();
+          elseif ($this->result->getLastChoiceFor($this->mySide) == 'scissors')
+            return parent::rockChoice();
           else
             return parent::rockChoice();
         }
