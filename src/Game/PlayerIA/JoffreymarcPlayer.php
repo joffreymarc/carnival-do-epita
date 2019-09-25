@@ -17,7 +17,7 @@ class JoffreymarcPlayer extends Player
 
     public function getChoice()
     {
-      if ($this->result->getNbRound() % 2 == 0)
+      if ($this->result->getNbRound() % 5 != 0)
       {
         if ($this->result->getLastScoreFor($this->mySide) != 3)
         {
