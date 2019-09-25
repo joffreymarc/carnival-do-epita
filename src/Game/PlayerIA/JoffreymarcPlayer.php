@@ -9,7 +9,7 @@ use Hackathon\Game\Result;
  * @author Robin
  *
  */
-class joffreymarcPlayer extends Player
+class JoffreymarcPlayer extends Player
 {
     protected $mySide;
     protected $opponentSide;
@@ -17,7 +17,8 @@ class joffreymarcPlayer extends Player
 
     public function getChoice()
     {
-        // -------------------------------------    -----------------------------------------------------
+      
+      // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
         // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
         // -------------------------------------    -----------------------------------------------------
