@@ -17,6 +17,7 @@ class JoffreymarcPlayer extends Player
 
     public function getChoice()
     {
+      //dissimulation de stratégie en alternant un tour sur deux
       if ($this->result->getNbRound() % 2 != 0)
       {
         //rotation de 1 en cas de défaites
